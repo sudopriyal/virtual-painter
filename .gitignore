@@ -1,5 +1,8 @@
 # Generate Screenshots
-/screenshots/
+/screenshots/*
+
+# Keep Demo Image
+!/screenshots/demo.png
 
 # Python Cache
 **/__pycache__/

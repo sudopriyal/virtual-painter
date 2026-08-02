@@ -3,9 +3,13 @@ from datetime import datetime
 
 from config import MODE_DRAW, MODE_ERASE, MODE_IDLE
 
-def handle_key(key, mode, canvas):
+def handle_key(key, mode, canvas, show_help):
 
     running = True
+
+    # Help
+    if key == ord('h'):
+        show_help = not show_help
 
     # Save drawing
     if key == ord('s'):
@@ -34,4 +38,4 @@ def handle_key(key, mode, canvas):
     if key == ord('q'):
         running = False
 
-    return mode, running
+    return mode, running, show_help

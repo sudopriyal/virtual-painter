@@ -4,3 +4,10 @@
 # Python Cache
 **/__pycache__/
 *.py[cod]
+
+# VS Code settings
+.vscode/
+
+# Virtual environments
+.venv/
+venv/

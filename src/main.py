@@ -1,12 +1,11 @@
 import cv2 as cv
 import numpy as np
 from collections import deque
-from datetime import datetime
 import time
 from color_picker import create_trackbars, get_hsv_values, create_brush_color_trackbars, get_brush_color, get_brush_size
 from utils import get_largest_contour, get_contour_center, create_mask
 from config import *
-from hud import print_hud, print_fps
+from hud import print_hud, print_fps, draw_help_overlay
 from input_handler import handle_key
 
 # Initialize camera
@@ -23,6 +22,8 @@ canvas = None
 prev_point = None
 
 points = deque(maxlen=5)
+
+show_help = False
 
 mode = MODE_IDLE
 
@@ -148,6 +149,10 @@ while True:
 
     print_fps(output, fps)
 
+    # Printing Controls if 'h' is pressed
+    if show_help:
+        draw_help_overlay(output)
+
     # Display Output
 
     cv.imshow("Virtual Painter", output)
@@ -156,10 +161,11 @@ while True:
 
     key = cv.waitKey(1) & 0xFF
 
-    mode, running = handle_key(
+    mode, running, show_help = handle_key(
         key,
         mode,
-        canvas
+        canvas,
+        show_help
     )
 
     if not running:

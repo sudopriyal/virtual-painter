@@ -37,8 +37,8 @@ def get_hsv_values():
 def create_brush_color_trackbars():
     cv.namedWindow("Brush Settings")
 
-    cv.createTrackbar("B", "Brush Settings", 0, 255, nothing)
-    cv.createTrackbar("G", "Brush Settings", 255, 255, nothing)
+    cv.createTrackbar("B", "Brush Settings", 255, 255, nothing)
+    cv.createTrackbar("G", "Brush Settings", 0, 255, nothing)
     cv.createTrackbar("R", "Brush Settings", 0, 255, nothing)
     cv.createTrackbar("Brush Size", "Brush Settings", 5, 30, nothing)
 

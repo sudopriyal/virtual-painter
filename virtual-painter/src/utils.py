@@ -28,3 +28,10 @@ def get_contour_center(contour):
     cy = int(M["m01"] / M["m00"])
 
     return (cx, cy)
+
+def create_mask(hsv, lower, upper, kernel):
+    mask = cv.inRange(hsv, lower, upper)
+    mask = cv.morphologyEx(mask, cv.MORPH_OPEN, kernel)
+    mask = cv.morphologyEx(mask, cv.MORPH_CLOSE, kernel)
+    
+    return mask

@@ -1,0 +1,6 @@
+# Generate Screenshots
+/screenshots/
+
+# Python Cache
+**/__pycache__/
+*.py[cod]

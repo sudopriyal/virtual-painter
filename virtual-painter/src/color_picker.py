@@ -6,6 +6,7 @@ def nothing(x):
 
 
 def create_trackbars():
+
     cv.namedWindow("Trackbars")
 
     cv.createTrackbar("H Min", "Trackbars", 0, 179, nothing)
@@ -32,3 +33,25 @@ def get_hsv_values():
         (h_min, s_min, v_min),
         (h_max, s_max, v_max)
     )
+
+def create_brush_color_trackbars():
+    cv.namedWindow("Brush Settings")
+
+    cv.createTrackbar("B", "Brush Settings", 0, 255, nothing)
+    cv.createTrackbar("G", "Brush Settings", 255, 255, nothing)
+    cv.createTrackbar("R", "Brush Settings", 0, 255, nothing)
+    cv.createTrackbar("Brush Size", "Brush Settings", 5, 30, nothing)
+
+def get_brush_color():
+
+    brush_color = (
+        cv.getTrackbarPos("B", "Brush Settings"),
+        cv.getTrackbarPos("G", "Brush Settings"),
+        cv.getTrackbarPos("R", "Brush Settings"),
+    )
+
+    return brush_color
+
+def get_brush_size():
+    brush_size = cv.getTrackbarPos("Brush Size", "Brush Settings")
+    return max(1, brush_size)

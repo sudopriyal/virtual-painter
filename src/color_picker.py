@@ -35,23 +35,23 @@ def get_hsv_values():
     )
 
 def create_brush_color_trackbars():
-    cv.namedWindow("Brush Settings")
+    cv.namedWindow("Brush Controls")
 
-    cv.createTrackbar("B", "Brush Settings", 255, 255, nothing)
-    cv.createTrackbar("G", "Brush Settings", 0, 255, nothing)
-    cv.createTrackbar("R", "Brush Settings", 0, 255, nothing)
-    cv.createTrackbar("Brush Size", "Brush Settings", 5, 30, nothing)
+    cv.createTrackbar("B", "Brush Controls", 255, 255, nothing)
+    cv.createTrackbar("G", "Brush Controls", 0, 255, nothing)
+    cv.createTrackbar("R", "Brush Controls", 0, 255, nothing)
+    cv.createTrackbar("Brush Size", "Brush Controls", 5, 30, nothing)
 
 def get_brush_color():
 
     brush_color = (
-        cv.getTrackbarPos("B", "Brush Settings"),
-        cv.getTrackbarPos("G", "Brush Settings"),
-        cv.getTrackbarPos("R", "Brush Settings"),
+        cv.getTrackbarPos("B", "Brush Controls"),
+        cv.getTrackbarPos("G", "Brush Controls"),
+        cv.getTrackbarPos("R", "Brush Controls"),
     )
 
     return brush_color
 
 def get_brush_size():
-    brush_size = cv.getTrackbarPos("Brush Size", "Brush Settings")
+    brush_size = cv.getTrackbarPos("Brush Size", "Brush Controls")
     return max(1, brush_size)
